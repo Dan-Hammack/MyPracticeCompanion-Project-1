@@ -5,8 +5,7 @@ var headingArray = [
     },
     {
         heading: "Let's Play the Blues",
-
-        instructions: "Time to practice some blues! Clicking \"Blues Backing Track\" will dynamically pull a C blues backing track from Youtube."
+        instructions: "The blues is a popular song form that consists of chords which are seen across multiple genres. The general structure of a blues form consists of dominant 7 chords (1-3-5-b7) based on the root, fourth, and fifth notes of the Major scale. One scale that works over a dominant 7 chord is the mixolydian scale (1-2-3-4-5-6-b7). The last four measures of the blues form are known as the turnaround and often consist of the chords V7– IV7–I7-V7. There are many variations on the blues form, so have fun exploring some of the available backing tracks. Clicking “C Blues Backing Track” will dynamically pull a video from Youtube that you can play along to."
     }
 ]
 
@@ -124,8 +123,8 @@ var playBlues = document.getElementById("playBlues")
 function bluesButton() {
     var bluesBtn = document.createElement("a");
     bluesBtn.className = "button is-info is-rounded";
-    bluesBtn.innerHTML = 'C Blues Backing Track';
-    bluesBtn.id = 'playMe';
+    bluesBtn.innerHTML = "C Blues Backing Track";
+    bluesBtn.id = "playMe";
     playBlues.append(bluesBtn);
 }
 
@@ -133,15 +132,17 @@ function pageLoad() {
     document.getElementById("heading").textContent = headingArray[0].heading;
     document.getElementById("instructions").textContent = headingArray[0].instructions;
     bluesButton();
-    bluesChart()
+    bluesChart();
     $("#bluesChart").hide();
-    $('#bluesVideo').hide();
-    $('#playMe').hide();
+    $("#bluesVideo").hide();
+    $("#playMe").hide();
+    $("#figureImage").hide();
 }
 
 pageLoad();
 
 function displayEl(index) {
+    albumInfo(index);
     var image = document.createElement("img")
     image.src = keyArray[index].figure
     document.getElementById("figureImage").append(image)
@@ -162,6 +163,7 @@ function displayEl(index) {
         var audio = new Audio(keyArray[index].sound);
         audio.play()
     }
+
     // Lastfm API
     var cache = new LastFMCache();
 
@@ -181,18 +183,8 @@ function displayEl(index) {
             console.log(message)
         }
     });
-    lastfm.album.getInfo({ artist: keyArray[index].artist, album: keyArray[index].album }, {
-        success: function (data) {
-            albumInfo(data);
-            console.log(data);
-        },
-        error: function (code, message) {
-            console.log(code);
-            console.log(message)
-        }
-    });
 
-    function albumInfo(data) {
+    function albumInfo(index) {
         var artistName = document.getElementById("artistName");
         artistName.textContent = "Artist: "
         $('#artistName').append(keyArray[index].artist);
@@ -209,10 +201,10 @@ function displayEl(index) {
 }
 
 function playVideo() {
-    $('#bluesVideo').show();
-    document.getElementById('popular-song').innerHTML = ''
-    document.getElementById('backing-track').innerHTML = ''
-    document.getElementById("playMe").addEventListener("click", getVideo);
+    $("#bluesVideo").show();
+    document.getElementById("popular-song").innerHTML = ''
+    document.getElementById("backing-track").innerHTML = ''
+    document.getElementById("playMe").addEventListener('click', getVideo);
 }
 
 // navigation tabs
@@ -220,7 +212,7 @@ document.getElementById("bluesTab").onclick = function () {
     playVideo();
     document.getElementById("heading").textContent = headingArray[1].heading;
     document.getElementById("instructions").textContent = headingArray[1].instructions;
-    $("#btnCol").hide();
+    $("#buttons").hide();
     $("#figureImage").hide();
     $("#appendKey").hide();
     $("#appendSteps").hide();
@@ -231,39 +223,22 @@ document.getElementById("bluesTab").onclick = function () {
     $("#blues-backing").show();
     $("#backing-track").hide();
     $("#popular-song").hide();
-    $('bluesVideo').show()
     $("#play").hide();
-    $('#playMe').show();
+    $("#playMe").show();
     $("#albumInfo").hide();
     $("#artistInfo").hide();
     $("#artistName").hide();
     $("#songName").hide();
+    $("#figureImage").hide();
 }
 
 document.getElementById("scalesTab").onclick = function () {
     document.getElementById("heading").textContent = headingArray[0].heading;
     document.getElementById("instructions").textContent = headingArray[0].instructions;
-    $("#btnCol").show();
-    $("#figureImage").show();
-    $("#appendKey").show();
-    $("#appendSteps").show();
-    $("#appendIntervals").show();
-    $("#backingText").show();
-    $("#popularText").show();
-    $("#bluesChart").hide();
-    $("#backing-track").show();
-    $("#popular-song").show();
-    $('#bluesVideo').hide();
-    $('#playMe').hide();
-    $("#play").show();
-    $("#albumInfo").show();
-    $("#artistInfo").show();
-    $("#artistName").show();
-    $("#songName").show();
 }
 
 // generate buttons
-var buttons = document.getElementById("btnCol")
+var buttons = document.getElementById("buttons")
 function addButtons(index) {
     var btnDiv = document.createElement("div");
     btnDiv.className = "field";
@@ -273,11 +248,13 @@ function addButtons(index) {
     btnDiv.append(keyBtn);
     buttons.append(btnDiv);
     keyBtn.addEventListener("click", function () {
-        document.getElementById('play').innerHTML = "";
-        document.getElementById('figureImage').innerHTML = "";
-        document.getElementById('artistInfo').innerHTML = "";
-        document.getElementById('albumInfo').innerHTML = "";
+        document.getElementById("play").innerHTML = "";
+        document.getElementById("figureImage").innerHTML = "";
+        document.getElementById("artistInfo").innerHTML = "";
+        document.getElementById("albumInfo").innerHTML = "";
         $("#albumInfo").show();
+        $("#figureImage").show();
+        $("#figureImage").show();
         displayEl(index);
         backingVideo(keyArray[index].backingUrl);
         popularVideo(keyArray[index].popularUrl);
@@ -324,21 +301,21 @@ function counterButtons(index) {
         counter.innerHTML = count;
     });
 
-    upBtn.addEventListener("click", function () {
+    upBtn.addEventListener('click', function () {
         count += 30;
         counter.innerHTML = count;
 
-        localStorage.setItem("count", count);
+        localStorage.setItem('count', count);
     });
-    downBtn.addEventListener("click", function () {
+    downBtn.addEventListener('click', function () {
         if (count > 0) {
             count -= 30;
             counter.innerHTML = count;
 
-            localStorage.setItem("count", count);
+            localStorage.setItem('count', count);
         }
     });
-    clearBtn.addEventListener("click", function () {
+    clearBtn.addEventListener('click', function () {
         localStorage.clear();
         count = 0;
         counter.innerHTML = count;
@@ -419,7 +396,6 @@ function getVideo() {
             console.log("Request Failed");
         },
     });
-
 }
 
 function embedVideo(data) {

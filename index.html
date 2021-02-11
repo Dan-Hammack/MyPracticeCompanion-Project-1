@@ -10,52 +10,56 @@
     <script type="text/javascript" src="lastfm.api.md5.js"></script>
     <script type="text/javascript" src="lastfm.api.js"></script>
     <script type="text/javascript" src="lastfm.api.cache.js"></script>
-    <title>Scale Practice</title>
+    <title>My Practice Companion</title>
 </head>
 
 <body>
-    <nav class="navbar" role="navigation" aria-label="dropdown navigation">
+    <nav class="navbar is-size-4 is-primary" role="navigation" aria-label="dropdown navigation">
         <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
                 Modules
             </a>
-            <div class="navbar-dropdown">
+            <div class="navbar-dropdown is-size-5">
                 <a href="index.html" id="scalesTab" class="navbar-item">
                     Scale Practice
                 </a>
-                <a id="bluesTab" class="navbar-item">
+                <a id="bluesTab" class="navbar-item is-size-5">
                     Learn the Blues
                 </a>
-                <hr class="navbar-divider">
+                <hr class="navbar-divider is-size-5">
                 <div class="navbar-item">
                     Version 0.9.1
                 </div>
             </div>
         </div>
     </nav>
+    <br>
     <h1 id="heading" class="is-size-2 has-text-weight-bold has-text-centered"></h1>
     <div class="columns">
         <div class="column is-1"></div>
         <div class="column">
-            <p id="instructions" class=is-size-4></p>
+            <p id="instructions" class="is-size-4"></p>
         </div>
         <div class="column is-1"></div>
     </div>
-    <div id="buttons" class="columns level-item has-text-centered">
-        <div id="btnCol" class="field has-addons is-centered">
+    <br>
+    <div id="buttons" class="is-align-items-end level-item has-text-centered is-flex-wrap-wrap">
+    </div>
+    <div id="appendKey" class="is-size-3 has-text-centered has-text-weight-bold"></div>
+    <div id="appendSteps" class="is-size-3 has-text-centered "></div>
+    <div id="appendIntervals" class="is-size-3 has-text-centered"></div>
+    <div class="columns">
+        <div class="column is-2"></div>
+        <div class="column card-content level-item has-text-centered">
+            <figure class="image, box" id="figureImage"></figure>
         </div>
+        <div class="column is-2"></div>
     </div>
-    <div id="appendKey" class="is-size-4 has-text-centered"></div>
-    <div id="appendSteps" class="is-size-4 has-text-centered"></div>
-    <div id="appendIntervals" class="is-size-4 has-text-centered"></div>
-    <div class="card-content level-item has-text-centered">
-        <figure class="image" id="figureImage"></figure>
-        <div id="play"></div>
-    </div>
+    <div id="play" class="level-item has-text-centered"></div>
     <div class="columns">
         <div class="column is-2"></div>
         <div class="column">
-            <figure class="bluesChart" id="bluesChart"></figure>
+            <figure class="bluesChart, box" id="bluesChart"></figure>
         </div>
         <div class="column is-2"></div>
     </div>
@@ -63,31 +67,31 @@
         <iframe class="level-item has-text-centered" id="bluesVideo"></iframe>
     </div>
     <div id='playBlues' class='level-item has-text-centered'></div>
-    <h3 id="backingText" class="is-size-5 level-item has-text-centered"></h3>
+    <h3 id="backingText" class="is-size-5 level-item has-text-centered has-text-weight-bold"></h3>
     <section id="backing-track" class="level-item has-text-centered">
     </section>
-    <h4 id="popularText" class="is-size-5 level-item has-text-centered"></h4>
-    <section id="popular-song" class="level-item has-text-centered">
-    </section>
-    <div id="artistName" class="albumInfo level-item has-text-centered is-size-4">
-        <br>
-    </div>
-    <div id="songName" class="albumInfo level-item has-text-centered is-size-4">
-        <br>
-    </div>
-    <div id="albumInfo" class="albumInfo level-item has-text-centered is-size-4">
-        <br>
-    </div>
     <br>
+    <h4 id="popularText" class="is-size-5 level-item has-text-centered has-text-weight-bold"></h4>
+    <section id="popular-song" class="level-item has-text-centered">
+        <br>
+    </section>
+    <div id="artistName" class="albumInfo level-item has-text-centered is-size-4 mt-5 mb-5">
+        <br>
+    </div>
+    <div id="songName" class="albumInfo level-item has-text-centered is-size-4 mb-5">
+        <br>
+    </div>
+    <div id="albumInfo" class="albumInfo level-item has-text-centered is-size-4 mb-5">
+        <br>
+    </div>
     <div class="columns">
         <div class="column is-2"></div>
         <div class="column">
-            <div id="artistInfo" class="artistInfo level-item has-text-centered is-size-4">
+            <div id="artistInfo" class="artistInfo is-size-4">
             </div>
         </div>
         <div class="column is-2"></div>
     </div>
-
     <div class="is-size-4 has-text-weight-bold has-text-centered"> Minutes spent practicing:
     </div>
     <div class="is-size-4 has-text-weight-bold has-text-centered">
@@ -97,24 +101,25 @@
     <script src="script.js">
     </script>
 </body>
-<footer class="footer footer-background-color">
+<br><br>
+<footer class="footer has-background-grey-lighter">
     <div class="content is-size-5">
-        <p class="has-text-centered">Additional Resources:</p>
+        <p class="has-text-centered has-text-weight-bold is-size-4">Additional Resources:</p>
         <div class="columns">
             <div class="column is-3"></div>
             <div class="column is-3">
-                <a href="https://www.musictheory.net/ Music Theory Lessons">Musictheory.net</a>
+                <a target="_blank" href="https://www.musictheory.net/">Musictheory.net</a>
                 <br>
-                <a href="https://www.onlinepianist.com/virtual-piano">Virtual Piano - Online Pianist</a>
+                <a target="_blank" href="https://www.onlinepianist.com/virtual-piano">Virtual Piano - Online Pianist</a>
                 <br>
-                <a href="https://www.fender.com/online-guitar-tuner">Guitar Tuner - Fender</a>
+                <a target="_blank" href="https://www.fender.com/online-guitar-tuner">Guitar Tuner - Fender</a>
             </div>
             <div class="column is-3">
-                <a href="https://tuner.ninja/ ">Chromatic Tuner – Tuner Ninja</a>
+                <a target="_blank" href="https://tuner.ninja/ ">Chromatic Tuner – Tuner Ninja</a>
                 <br>
-                <a href="https://www.musicca.com/metronome">Metronome - Musicca</a>
+                <a target="_blank" href="https://www.musicca.com/metronome">Metronome - Musicca</a>
                 <br>
-                <a href="https://www.songsterr.com/">Guitar Tabs - Songsterr</a>
+                <a target="_blank" href="https://www.songsterr.com/">Guitar Tabs - Songsterr</a>
             </div>
             <div class="column is-3"></div>
         </div>
